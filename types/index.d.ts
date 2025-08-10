@@ -11,9 +11,10 @@ enum Subject {
   webdev = "webdev",
   cybersecurity = "cybersecurity",
   cryptography = "cryptography",
+  generalskills = "general-skills",
 }
 
-type Companion = Models.DocumentList<Models.Document> & {
+type Course = Models.DocumentList<Models.Document> & {
   $id: string;
   name: string;
   subject: Subject;
@@ -22,16 +23,14 @@ type Companion = Models.DocumentList<Models.Document> & {
   bookmarked: boolean;
 };
 
-interface CreateCompanion {
+interface CreateCourse {
   name: string;
   subject: string;
   topic: string;
-  voice: string;
-  style: string;
   duration: number;
 }
 
-interface GetAllCompanions {
+interface GetAllCourses {
   limit?: number;
   page?: number;
   subject?: string | string[];
